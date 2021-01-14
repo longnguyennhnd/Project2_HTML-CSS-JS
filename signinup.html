@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Đăng nhập, đăng ký</title>
+	<LINK REL="SHORTCUT ICON" HREF="images/icon.ico">
+	<link rel="stylesheet" href="vendor/font-awesome.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<link rel="stylesheet" href="signinup.css">
+<body>
+	<h2></h2>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#">
+				<h1>Sign up</h1>
+				<div class="social-container">
+					<a href="#" class="facebook-bg"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="google-bg"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="linked-bg"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span>hoặc sử dụng email để đăng ký</span>
+				<input type="text" placeholder="Name" name="Email" />
+				<input type="text" class="form-contact" name="email" placeholder="Enter your email">
+				<input type="password" placeholder="Password" />
+				<button>Sign Up</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Sign in</h1>
+				<div class="social-container">
+					<a href="#" class="facebook-bg"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="google-bg"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="linked-bg"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span>hoặc sử dụng tài khoản của bạn</span>
+				<input type="text" id="textEmail" class="form-contact" name="email" placeholder="Enter your email">
+				<!-- <div class="thongbao" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+					<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+					<p style="color: red;">Vui lòng nhập đúng định dạng</p>
+				</div> -->
+				<input type="password" id="textMK" placeholder="Password" />
+				<!-- <div class="thongbao" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+					<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+					<p style="color: red;">Vui lòng nhập đúng định dạng</p>
+				</div> -->
+				<a href="#">Quên mật khẩu?</a>
+				<a href="" id="sub"><button >Sign In</button></a>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>
+					Để tiếp tục kết nối với chúng tôi, vui lòng đăng nhập với thông tin cá nhân của bạn</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Nhập thông tin cá nhân của bạn để bắt đầu với chúng tôi</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>
+			Created with <i class="fa fa-heart"></i> by
+			<a target="_blank" href="#">Long Nguyễn</a>
+		</p>
+	</footer>
+	<script type="text/javascript" src="signinup.js"></script>
+</body>
+</html>

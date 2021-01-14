@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quản lý khách hàng</title>
+	<!-- <link rel="stylesheet" type="text/css" href="ql.css"> -->
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="vendor/bootstrap.css">
+	<script type="text/javascript" src="vendor/bootstrap.js"></script>
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="vendor/font-awesome.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="vendor/font-awesome.css">
+	<!-- /global stylesheets -->
+	<style>
+		tr{
+			cursor: pointer;
+		}
+		tr.andi {
+			display: none;
+		}
+		.timkiem {
+			width: 350px;
+			height: 35px;
+			/*			background-color: #e74c3c;*/
+			position: absolute;
+			top: 63px;
+			display: flex;
+			align-items: center;
+			left: 482px;
+			margin-left: 50px;
+			margin-top: 10px;
+		}
+		.timkiem input#txtTimkiem {
+			height: 100%;
+			width: 70%;
+			padding-left: 20px;
+		}
+		.btn-tk{
+			width: 40px;
+			height: 35px;
+			background-color: #e74c3c;
+			transition: 0.3s;
+		}
+		.btn-tk a.nut_timkiem i:hover{
+			color: #fff;
+			transition: 0.3s;
+		}
+		.btn-tk:hover{
+			background-color: #e1b12c;
+			color: #fff;
+			transition: 0.3s;
+		}
+		.timkiem a.nut_timkiem {
+			display: inline-block;
+			height: 100%;
+			width: 20px;
+		}
+		.timkiem a.nut_timkiem i {
+			width: 21px;
+			position: relative;
+			top: 7px;
+			left: 12px;
+			color: #000;
+			transition: 0.3s;
+		}
+		button.close {
+			padding: 0;
+			cursor: pointer;
+			background: transparent;
+			border: 0;
+			-webkit-appearance: none;
+			margin-right: 30px;
+			color: #fff;
+		}
+		.btn.btn-info.m-3{
+			background-color: #F45625;
+			color: #fff;
+			border: none;
+		}
+		.btn.btn-info.m-3:hover{
+
+		}
+		button.close.mr-2 {
+			color: #fff;
+		}
+	</style>
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/inputs/alpaca/alpaca.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/inputs/alpaca/price_format.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/prism.min.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/alpaca_advanced.js"></script>
+	<!-- /theme JS files -->
+	
+	<script>
+		// function validateForm(formId)
+  //       {
+  //           var inputs, i;
+  //           var form=document.getElementById('FormID');
+  //           var mks = form.elements[1].value;
+  //           console.log(mks);
+  //           for (index = 0; index < inputs.length; ++i) {
+  //               // deal with inputs[index] element.
+  //               if (inputs[i].value==null || inputs[i].value=="")
+  //               {
+  //                   alert("Bạn phải nhập vào trường này");
+  //                   return false;
+  //               }
+  //           }
+  //       }
+</script>
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html" style="font-size: 20px;font-weight: bold;">Quản lý</a>
+
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+
+				<li class="dropdown">
+					
+					
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<p class="navbar-text">
+				<span class="label bg-success">Online</span>
+			</p>
+
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					
+
+
+					<li class="dropdown dropdown-user">
+						<a class="dropdown-toggle" data-toggle="dropdown">
+							<img src="C:\Users\laptop F1\Desktop/anh.jpg" alt="">
+							<span>Long Shinnn</span>
+							<i class="caret"></i>
+						</a>
+
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#"><i class="icon-cog5"></i> Cài đặt tài khoản</a></li>
+							<li><a href="E:\Đồ_Án2/dangnhap.html"><i class="icon-switch2"></i> Đăng xuất</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="C:\Users\laptop F1\Desktop/anh.jpg" class="img-circle img-sm" alt=""></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">Long Shinn</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Hưng Yên
+									</div>
+								</div>
+
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								
+								<li><a href=""><i class="icon-home4"></i> <span>Trang chủ</span></a></li>
+								
+								<li>
+									<a href=""><i class="icon-stack2"></i><span>Quản lý khách sạn</span></a>
+									<ul>
+
+										<li><a href="">Quản lý phòng</a>
+										</li>
+										<li><a href="">Quản lý địa điểm</a>
+										</li>
+										<li><a href="">Quản lý dịch vụ</a>
+										</li>
+									</ul>
+								</li>
+								<!-- <li>
+									<a href="E:\Đồ_Án2/qlnhanvien.html"><i class="icon-puzzle2"> </i><span>Quản lý nhân viên</span></a>
+
+								</li> -->
+								<li>
+									<a href="#"><i class="icon-puzzle2"> </i> <span>Quản lý chủ nhà</span></a>
+
+								</li>
+								<li>
+									<a href="#"><i class="icon-puzzle2"> </i> <span>Quản lý khách hàng</span></a>
+
+								</li>
+								<li>
+									<a href="#"><i class="icon-file-spreadsheet"> </i> <span>Quản lý  đơn đặt phòng</span></a>
+
+								</li>
+									<!-- <li>
+										<a href="#"><i class="icon-file-spreadsheet"></i> <span>Quản lý hóa đơn nhập</span></a>
+										<ul>
+
+											<li><a href="">Hóa đơn nhập</a>
+											</li>
+											<li><a href="">Chi tiết hóa đơn nhập</a></li>
+
+										</ul>
+									</li> -->
+									<!-- <li>
+										<a href="#"><i class="icon-file-spreadsheet"></i> <span>Quản lý hóa đơn</span></a>
+										<ul>
+
+											<li><a href="">Hoá đơn đặt phòng</a>
+											</li>
+											<li><a href="">Chi tiết hóa đơn bán</a></li>
+
+										</ul>
+									</li>
+									<li>
+										<a href="E:\Đồ_Án2/qlkhachang.html"><i class="icon-puzzle2"> </i> <span>Quản lý dịch vụ</span></a>
+
+									</li>
+									<li>
+										<a href="E:\Đồ_Án2/qlkhachang.html"><i class="icon-puzzle2"> </i> <span>Quản lý khách hàng</span></a>
+
+									</li> -->
+
+									<!-- <li>
+										<a href="#"> <i class="icon-stack"></i> <span>Thống kê</span></a>
+										<ul>
+
+											<li><a href="">Sản phẩm sắp hết</a>
+											</li>
+											<li><a href="">Sản phẩm bán chạy</a></li>
+											<li><a href="">Doanh thu</a></li>
+
+										</ul>
+									</li> -->
+
+
+									<li>
+										<a href="#"> <i class="icon-people"></i> <span>Quản lý tài khoản</span></a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- /main navigation -->
+					</div>
+				</div>
+				<!-- /main sidebar -->
+				<!-- Main content -->
+				<div class="content-wrapper">
+					<div class="row">
+						<div class="col-md-12 " style="margin-right: 5px;">
+							<div class="panel panel-default panel-table">
+								<div class="panel-heading">
+									<div class="row">
+										<div class="col col-xs-6">
+											<h3 class="panel-title">Danh sách khách hàng</h3>
+										</div>
+										<div class="col col-xs-6 text-right">
+											<button type="button" class="btn btn-sm btn-primary btn-create" data-toggle="modal" data-target="#myModal" >Thêm mới</button>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="thongke" style="display: flex; margin-top: 30px;">
+									<div class="tongKS" style="width: 300px; height: 200px; background: #1e90ff; cursor: pointer; margin-left: 30px; border-radius: 4px; display: inline-block;">
+										<p style="color: #fff; font-size: 20px; margin-left: 20px; margin-top: 10px;">Tổng cộng có: </p>
+										<h1 class="so" style="font-weight: bold; color: #fff; font-size: 40px; margin-left: 20px;">
+
+										</h1>
+										<p style="font-size: 25px; color: #fff; margin-left: 20px;">
+											Khách sạn
+										</p>
+									</div>
+									<div class="tongKS" style="width: 300px; height: 200px; background: #1e90ff; cursor: pointer; margin-left: 30px; border-radius: 4px;">
+										<p style="color: #fff; font-size: 20px; margin-left: 20px; margin-top: 10px;">Khách sạn còn phòng: </p>
+										<h1 class="so2" style="font-weight: bold; color: #fff; font-size: 40px; margin-left: 20px;"></h1>
+										<p style="font-size: 25px; color: #fff; margin-left: 20px;">
+											Khách sạn
+										</p>
+									</div>
+								</div> -->
+								<table class="table table-bordered table-hover" id="bang" style="margin-top: 50px;">
+									<tr style="border-top: 1px solid #444;">
+										<th></th>
+										<th>Mã KH</th>
+										<th>Họ tên</th>
+										<th>Email</th>
+										<th>SĐT</th>
+										<th>Số CMT</th>
+										<th>Địa chỉ</th>
+									</tr>
+									<tr>
+										<td><button class="btn btn-white" style="margin-bottom: 3px;" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-pencil " ></i></button><br>
+											<button class="btn btn-danger" class="btn btn-danger" onclick="Xoa()"><i class="glyphicon glyphicon-trash " ></i></button></td>
+											<td id="makh">KH01</td>
+											<td id="ten">Lê Xuân Thắng</td>
+											<td id="email">maxim@gmail.com</td>
+											<td id="SDT">0978326328</td>
+											<td id="CMT">1683088743874</td>
+											<td id="diachi">Hưng Yên</td>
+										</tr>
+										<tr>
+											<td><button class="btn btn-white" style="margin-bottom: 3px;" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-pencil " ></i></button><br>
+												<button class="btn btn-danger" class="btn btn-danger" onclick="Xoa()"><i class="glyphicon glyphicon-trash " ></i></button></td>
+												<td id="makh">KH02</td>
+												<td id="ten">Nguyễn Văn Long</td>
+												<td id="email">longnguyen@gmail.com</td>
+												<td id="SDT">0947816387</td>
+												<td id="CMT">1683567567874</td>
+												<td id="diachi">Nam Định</td>
+											</tr>
+
+											<tr>
+												<td><button class="btn btn-white" style="margin-bottom: 3px;" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-pencil " ></i></button><br>
+													<button class="btn btn-danger" class="btn btn-danger" onclick="Xoa()"><i class="glyphicon glyphicon-trash " ></i></button></td>
+													<td id="makh">KH03</td>
+													<td id="ten">Hoàng Công Mạnh</td>
+													<td id="email">manhhoang@gmail.com</td>
+													<td id="SDT">0974629463</td>
+													<td id="CMT">1268474682965</td>
+													<td id="diachi">Bắc Ninh</td>
+												</tr>
+												<tr>
+													<td><button class="btn btn-white" style="margin-bottom: 3px;" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-pencil " ></i></button><br>
+														<button class="btn btn-danger" class="btn btn-danger" onclick="Xoa()"><i class="glyphicon glyphicon-trash " ></i></button></td>
+														<td id="makh">KH04</td>
+														<td id="ten">Phạm Xuân Tùng</td>
+														<td id="email">maiiu1ng@gmail.com</td>
+														<td id="SDT">0963573821</td>
+														<td id="CMT">165386475289</td>
+														<td id="diachi">Hưng Yên</td>
+													</tr>							
+												</table>
+											</div>
+											<div class="row">
+												<div class="col col-xs-4">Trang 1 của 5 </div>
+												<div class="col col-xs-8">
+													<ul class="pagination hidden-xs pull-right">
+														<li><a href="#">1</a></li>
+														<li><a href="#">2</a></li>
+														<li><a href="#">3</a></li>
+														<li><a href="#">4</a></li>
+														<li><a href="#">5</a></li>
+													</ul>
+													<ul class="pagination visible-xs pull-right">
+														<li><a href="#">«</a></li>
+														<li><a href="#">»</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="modal fade" id="myModal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div style="background-color: white;margin: auto;border: 1px solid black;width: 758px; height: 636px;">
+
+															<form method="Post" id="FormID">
+																<table style="width: 100%; background: #fff;">
+																	<tr style="height: 40px;">
+																		<td colspan="2" class="text-center font-weight-bold p-3" style="background: #f4511e;">
+																			<button type="button" class="close mr-2" data-dismiss="modal" id="ipTen" style="color: #fff;font-size: 30px;">&times;</button><h3 style="color: #fff;">Thêm khách hàng</h3></td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																					<label style="margin-bottom: 7px;margin-top: 5px; margin-left: 40px;">Mã khách hàng:</label>
+																					<input  style="width: 250px; margin-left: 10px;margin-right: 2px;" type="text" id="makh2" class="form-control" placeholder="Nhập mã khách hàng" title="Vui lòng điền vào trường này">
+																					<div class="thongbaoma" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+																						<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+																						<p style="color: red;">Vui lòng nhập vào trường này</p>
+																					</div>
+																				</div>
+																			</td>
+																			<td>
+																				<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																					<label style="margin-top: 5px;" >Tên khách hàng:</label>
+																					<input style="width: 250px; margin-right: 10px;" type="text"  id="ten2" class="form-control" placeholder="Nhập tên khách hàng" title="Vui lòng điền vào trường này">
+																					<div class="thongbaoten" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+																						<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+																						<p style="color: red;">Vui lòng điền vào trường này</p>
+																					</div>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																						<label >Email:</label>
+																						<input style="width: 250px; margin-right: 10px;" type="Email"  id="email2" class="form-control" placeholder="Email" title="Vui lòng điền vào trường này">
+																					</div>
+																				</td>
+																				<td>
+																					<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																						<label >SDT:</label>
+																						<input style="width: 250px; margin-right: 10px;" type="text"  id="sdt2" class="form-control" placeholder="Số điện thoại" title="Vui lòng điền vào trường này">
+																					</div>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																						<label >CMT:</label>
+																						<input style="width: 250px; margin-right: 10px;" type="text"  id="cmt2" class="form-control" placeholder="CMT/CCCD" title="Vui lòng điền vào trường này">
+																					</div>
+																				</td>
+																				<td>
+																					<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																						<label >Địa chỉ:</label>
+																						<input style="width: 250px; margin-right: 10px;" type="text"  id="diachi2" class="form-control" placeholder="Địa chỉ" title="Vui lòng điền vào trường này">
+																					</div>
+																				</td>
+																			</tr>
+																		</table>
+																	</form>
+																	<div class="text-center">
+																		<button class="btn btn-info m-3" style="width: 100px;" onclick="themmoi();">Thêm</button>
+																		<button class="btn btn-info m-3" style="width: 100px;" data-dismiss="modal">Hủy</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="modal fade" id="myModal2">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div style="background-color: white;margin: auto;border: 1px solid black;width: 758px; height: 550px"  >
+																	<form method="Post" >
+																		<table style="width: 100%; background: #fff;">
+																			<tr style="height: 40px;">
+																				<td colspan="2" class="text-center font-weight-bold p-3" style="background: #f4511e;">
+																					<button type="button" class="close mr-2" data-dismiss="modal" id="ipTen" style="color: #fff;font-size: 30px;">&times;</button><h3 style="color: #fff;">Thêm khách hàng</h3></td>
+																				</tr>
+																				<tr>
+																					<td>
+																						<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																							<label style="margin-bottom: 7px;margin-top: 5px; margin-left: 40px;">Mã khách hàng:</label>
+																							<input  style="width: 250px; margin-left: 10px;margin-right: 2px;" type="text" id="makh3" class="form-control" placeholder="Nhập mã khách hàng" title="Vui lòng điền vào trường này">
+																							<div class="thongbaoma" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+																								<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+																								<p style="color: red;">Vui lòng nhập vào trường này</p>
+																							</div>
+																						</div>
+																					</td>
+																					<td>
+																						<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																							<label style="margin-top: 5px;" >Tên khách hàng:</label>
+																							<input style="width: 250px; margin-right: 10px;" type="text"  id="ten3" class="form-control" placeholder="Nhập tên khách hàng" title="Vui lòng điền vào trường này">
+																							<div class="thongbaoten" style="display: flex; opacity: 0; margin-top: 5px; margin-left: 10px;">
+																								<i class="fa fa-exclamation-circle" style="color: red; margin-right: 5px; margin-top: 4px;"></i>
+																								<p style="color: red;">Vui lòng điền vào trường này</p>
+																							</div>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																								<label >Email:</label>
+																								<input style="width: 250px; margin-right: 10px;" type="Email"  id="email3" class="form-control" placeholder="Email" title="Vui lòng điền vào trường này">
+																							</div>
+																						</td>
+																						<td>
+																							<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																								<label >SDT:</label>
+																								<input style="width: 250px; margin-right: 10px;" type="text"  id="sdt2" class="form-control" placeholder="Số điện thoại" title="Vui lòng điền vào trường này">
+																							</div>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																								<label >CMT:</label>
+																								<input style="width: 250px; margin-right: 10px;" type="text"  id="cmt3" class="form-control" placeholder="CMT/CCCD" title="Vui lòng điền vào trường này">
+																							</div>
+																						</td>
+																						<td>
+																							<div class="form-group pl-3 pr-3" style="margin-left: 55px;">
+																								<label >Địa chỉ:</label>
+																								<input style="width: 250px; margin-right: 10px;" type="text"  id="diachi3" class="form-control" placeholder="Địa chỉ" title="Vui lòng điền vào trường này">
+																							</div>
+																						</td>
+																					</tr>
+																				</table>
+																			</form>
+																			<div class="text-center" style="width: 754px; background-color: #fff;">
+																				<button class="btn btn-info m-3" style="width: 100px;" onclick="Sua()" data-dismiss="modal">Sửa</button>
+																				<button class="btn btn-info m-3" style="width: 100px;" data-dismiss="modal">Hủy</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<script >
+																
+															</script>
+														</div>
+													</div>
+												</div>
+
+<!-- thêm: lấy dữ liệu từ form bằng id 
+insertRow() là thêm mới 1 dòng
+sửa: lấy dữ liệu từ form bằng id 
+gọi đến cái nơi cần sửa bằng id  
+innerHTML là thay đổi phần tử  -->
+
+
+
+</div>
+<!-- /content area -->
+
+</div>
+<!-- /main content -->
+
+
+</div>
+<!-- /page content-->
+
+
+
+</div>
+<!-- /page container -->
+</div>
+<div class="timkiem">
+	<input type="text" id="txtTimkiem" class="form-contact" placeholder="Nhập tên khách sạn muốn tìm" style="border: 1px solid #222;">
+	<div class="btn-tk">
+		<a href="#" class="nut_timkiem">
+			<i class="fas fa-search"></i>
+		</a>
+	</div>
+</div>
+
+<script src="QLKhachHang.js"></script>
+</body>
+</html>
